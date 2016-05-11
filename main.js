@@ -163,6 +163,7 @@ $().ready( function() {
     if (!(spellToAdd in shelf[book].spells)) { // only add if not already present
       shelf[book].spells[spellToAdd] = (spellData.spells[spellToAdd]);
     }
+    console.log(shelf);
   }
 
 
