@@ -172,7 +172,6 @@ $().ready( function() {
     var html = compileSpells(spells);
     $spells.html(html);
     if (!didItHappen) {
-      console.log('THIS HOPPENS');
       $spellGrid = $spells.isotope({
         filter: '*',
       });
