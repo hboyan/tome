@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TOME</title>
+  <link href='https://fonts.googleapis.com/css?family=Righteous|Anonymous+Pro:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="https://npmcdn.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
+  <!-- <script src='client.js'></script> -->
+  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <link rel="stylesheet" href="main.css">
+
+</head>
+<body>
+  <header>
+    <h1>TOME</h1>
+    <div class="menu">
+      <a href="#" class="button" id="new-book">New Spellbook</a>
+      <a href="#" class="button" id="load-book">Load Spellbook</a>
+    </div>
+    <div class="books">
+      <!-- <ul>
+        <li>My Tome</li>
+        <li>Spells!</li>
+        <li>Necronomicon</li>
+        <li>Dank Ass Spells</li>
+      </ul> -->
+    </div>
+    <form class="new-book-input">
+      <input type="text"></input>
+    </form>
+    <nav class="classes">
+      <!-- will be filled in by Handlebars  -->
+    </nav>
+    <nav class="levels">
+      <a class="button" href="#">0</a>
+      <a class="button" href="#">1</a>
+      <a class="button" href="#">2</a>
+      <a class="button" href="#">3</a>
+      <a class="button" href="#">4</a>
+      <a class="button" href="#">5</a>
+      <a class="button" href="#">6</a>
+      <a class="button" href="#">7</a>
+      <a class="button" href="#">8</a>
+      <a class="button" href="#">9</a>
+    </nav>
+  </header>
+  <div class="spells">
+    <!-- will be filled in by Handlebars  -->
+  </div>
+
+  <!-- Individual Spell Div Starts Here -->
+  <script id="spell-template" type="text/x-handlebars-template">
+    {{#each spells}}
+    <div class="spell {{this.level}} {{#list this.classes}}{{/list}}">
+      <h2 class="spell-header">
+        <span class="spell-header-name">{{@key}}</span>
+        <span class="spell-header-lvl">{{this.level}}</span>
+      </h2>
+      <div class="spell-description">
+        <div class="spell-description-school">{{this.school}}</div>
+        <p>{{this.description}}</p>
+        <ul class="spell-description-attributes">
+          <li><strong>Casting Time: </strong>{{this.casting_time}}</li>
+          <li><strong>Range: </strong>{{this.range}}</li>
+          <li><strong>Duration: </strong>{{this.duration}}</li>
+          <li><strong>Components: </strong>{{this.components}}</li>
+        </ul>
+      </div>
+    </div>
+    {{/each}}
+  </script>
+
+  <!-- class nav bar template-->
+  <script id="class-template" type="text/x-handlebars-template">
+    {{#each classes}}
+    <a class="button" href="#">{{@key}}</a>
+    {{/each}}
+  </script>
+
+  <!-- book list template  -->
+  <script id="book-list-template" type="text/x-handlebars-template">
+    <ul>
+      {{#each this}}
+      <li>{{name}}</li>
+      {{/each}}
+    </ul>
+  </script>
+
+
+</body>
+</html>
