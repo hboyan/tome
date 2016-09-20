@@ -101,6 +101,11 @@ spells_df.rename(index={'spell_range':'range'}, inplace=True)
 spells_df.to_csv('spells.csv', encoding='utf-8')
 
 spellsforjson = pd.read_csv('spells.csv')
+spellsforjson.set_index('Unnamed: 0', inplace=True)
+spellsforjson.columns = spellsforjson.loc['title']
+spellsforjson.drop('title',axis=0,inplace=True)
+
+spellsforjson
 spellsforjson.to_json('spells.json')
 
 #errors on: glyph-of-warding, trap-the-soul
